@@ -58,6 +58,15 @@ class ViewController: NSViewController {
         
         // Set window level before view is displayed
         makeWindowTopMost(topMost: UserSettings.windowShouldBeTopMost)
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
+            let path = "/Users/thongchai.kolyutsaku/Work/Lab/BuildTimeAnalyzer-for-Xcode/BuildTimeAnalyzer/AppDelegate.swift"
+            self.activateXcode(path: path)
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
+//            self.sendKeyStrokes(key: "yayy")
+            KeySimulator.send(126, withCommand: false)
+        }
     }
     
     override func viewWillDisappear() {
@@ -78,23 +87,47 @@ class ViewController: NSViewController {
 
     @objc func didDoubleClickTableView(_ tableView: NSTableView) {
         guard let item = dataSource.measure(index: tableView.selectedRow) else { return }
-        NSWorkspace.shared.openFile(item.path)
+        print(item.path)
+    }
 
-        let gotoLineScript =
-            "tell application \"Xcode\"\n" +
-            "  activate\n" +
-            "end tell\n" +
-            "tell application \"System Events\"\n" +
-            "  keystroke \"l\" using command down\n" +
-            "  keystroke \"\(item.location)\"\n" +
-            "  keystroke return\n" +
-            "end tell"
+    func activateXcode(path: String?) {
+//        var openPathCommand = ""
+//        if let path = path {
+//            NSWorkspace.shared.openFile(path)
+////            openPathCommand = "open \(path)"
+////            NSWorkspace.shared.openFile(path)
+//        }
+        let string =
+        """
+        tell application "Xcode"
+            activate
+        end tell
+        """
+        NSAppleScript(source: string)?.executeAndReturnError(nil)
+    }
 
-        DispatchQueue.main.async {
-            if let script = NSAppleScript(source: gotoLineScript) {
-                script.executeAndReturnError(nil)
-            }
+    func sendKeyStrokes(key: String) {
+        let string =
+        """
+        tell application "System Events"
+            keystroke "\(key)"
+        end tell
+        """
+        var error: NSDictionary? = nil
+        NSAppleScript(source: string)?.executeAndReturnError(&error)
+        if let error = error as? [String: Any] {
+            print(error)
+            presentError(NSError(domain: "",
+                                 code: 1,
+                                 userInfo: [NSLocalizedDescriptionKey: error.description]))
         }
+    }
+
+    func sayHelloWorld() {
+        let path = "/usr/bin/say"
+        let arguments = ["hello world"]
+        let task = Process.launchedProcess(launchPath: path, arguments: arguments)
+        task.waitUntilExit()
     }
     
     // MARK: Layout

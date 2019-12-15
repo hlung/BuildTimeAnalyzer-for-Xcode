@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		013ACBAD23A6471A005E7E41 /* KeySimulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013ACBAC23A6471A005E7E41 /* KeySimulator.swift */; };
 		2839B8691FD2896F004C075C /* ViewControllerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2839B8681FD2896F004C075C /* ViewControllerDataSource.swift */; };
 		2839B86B1FD32766004C075C /* ViewControllerDataSourceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2839B86A1FD32766004C075C /* ViewControllerDataSourceTest.swift */; };
 		2A3164C81D21D73F00064045 /* CompileMeasure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3164C01D21D73F00064045 /* CompileMeasure.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		013ACBAC23A6471A005E7E41 /* KeySimulator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeySimulator.swift; sourceTree = "<group>"; };
 		2839B8681FD2896F004C075C /* ViewControllerDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerDataSource.swift; sourceTree = "<group>"; };
 		2839B86A1FD32766004C075C /* ViewControllerDataSourceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerDataSourceTest.swift; sourceTree = "<group>"; };
 		2A3164C01D21D73F00064045 /* CompileMeasure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompileMeasure.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 				2A3164C11D21D73F00064045 /* LogProcessor.swift */,
 				2A9807DE1D7C76FD00B9232C /* ProjectSelection.swift */,
 				2ACBFD0B1D8835E60009567E /* UserSettings.swift */,
+				013ACBAC23A6471A005E7E41 /* KeySimulator.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 				2A5404031D86DE0C00DBD44C /* XcodeDatabase.swift in Sources */,
 				2A3164CB1D21D73F00064045 /* ProcessingState.swift in Sources */,
 				2AF821441D21D6B900D65186 /* AppDelegate.swift in Sources */,
+				013ACBAD23A6471A005E7E41 /* KeySimulator.swift in Sources */,
 				2AE775121D225D5D00D1A744 /* DerivedDataManager.swift in Sources */,
 				2A3698AC1D80A33B002C5CDA /* ViewController.swift in Sources */,
 				2A3164CC1D21D73F00064045 /* RawMeasure.swift in Sources */,
